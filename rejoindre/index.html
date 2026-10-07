@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Page d'invitation : ni indexée, ni suivie, aucune ressource externe. Elle ne montre aucune donnée. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Invitation Famiam</title>
+<link rel="icon" href="../icon.png">
+<style>
+  :root { --bg: #FBF7F2; --card: #FFFFFF; --text: #2B2420; --muted: #6E625A; --border: #EDE4DA; --chip: #F3E9DF; --primary: #B4472F; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 440px; margin: 0 auto; padding: 44px 20px 32px; display: flex; flex-direction: column; gap: 22px; min-height: 100vh; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; }
+  .brand img { width: 44px; height: 44px; border-radius: 12px; }
+  h1 { margin: 0; font-size: 32px; line-height: 1.08; letter-spacing: -0.02em; }
+  p { margin: 10px 0 0; font-size: 16px; line-height: 1.5; color: var(--muted); }
+  .steps { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 20px; background: var(--card); border: 1px solid var(--border); }
+  .step { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.45; }
+  .step b { flex: 0 0 30px; height: 30px; border-radius: 50%; background: var(--chip); color: var(--primary); display: flex; align-items: center; justify-content: center; }
+  .step span { padding-top: 4px; }
+  .button { display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 18px; background: var(--primary); color: #fff; font-size: 17px; font-weight: 700; text-decoration: none; }
+  .code { margin-top: auto; text-align: center; color: var(--muted); font-size: 14px; }
+  .code strong { display: block; margin-top: 4px; color: var(--text); font-size: 26px; letter-spacing: 0.12em; }
+  .note { padding: 14px 16px; border-radius: 16px; background: var(--chip); font-size: 15px; line-height: 1.45; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><img src="../icon.png" alt="">Famiam</div>
+  <div>
+    <h1 id="title">Tu es invité dans une famille</h1>
+    <p>Famiam, c’est le carnet de recettes de la famille. L’invitation s’ouvre uniquement dans l’application.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><b>1</b><span>Installe Famiam sur ton téléphone (demande l’application à la personne qui t’a invité).</span></div>
+    <div class="step"><b>2</b><span>Touche à nouveau le lien reçu : l’invitation s’ouvre dans l’app.</span></div>
+  </div>
+  <div class="note" id="absent" hidden>Famiam n’est pas encore installée sur ce téléphone. Installe-la, puis touche à nouveau le lien.</div>
+  <a class="button" id="open" href="#" hidden>Ouvrir dans Famiam</a>
+  <div class="code" id="code" hidden>Ou, dans l’app : « J’ai un code »<strong id="code-value"></strong></div>
+</main>
+<script>
+  // Lit le code dans l'adresse, sans rien envoyer nulle part.
+  var params = new URLSearchParams(location.search);
+  var raw = (params.get('code') || '').replace(/[\s-]/g, '').toUpperCase();
+  var code = /^[0-9A-F]{8}$/.test(raw) ? raw : '';
+  if (params.get('absent')) document.getElementById('absent').hidden = false;
+  if (code) {
+    document.getElementById('code-value').textContent = code.slice(0, 4) + ' ' + code.slice(4);
+    document.getElementById('code').hidden = false;
+    if (/Android/i.test(navigator.userAgent)) {
+      // Ouvre l'app si elle est installée ; sinon revient ici avec un message.
+      var fallback = location.origin + location.pathname + '?code=' + code + '&absent=1';
+      var open = document.getElementById('open');
+      open.href = 'intent://rejoindre?code=' + code + '#Intent;scheme=recettes;S.browser_fallback_url=' + encodeURIComponent(fallback) + ';end';
+      open.hidden = false;
+    }
+  } else {
+    document.getElementById('title').textContent = 'Lien d’invitation incomplet';
+  }
+</script>
+</body>
+</html>
