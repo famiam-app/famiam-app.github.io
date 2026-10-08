@@ -21,6 +21,8 @@
   .step { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.45; }
   .step b { flex: 0 0 30px; height: 30px; border-radius: 50%; background: var(--chip); color: var(--primary); display: flex; align-items: center; justify-content: center; }
   .step span { padding-top: 4px; }
+  .button.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+  .hint { margin: -8px 0 0; font-size: 13px; text-align: center; }
   .button { display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 18px; background: var(--primary); color: #fff; font-size: 17px; font-weight: 700; text-decoration: none; }
   .code { margin-top: auto; text-align: center; color: var(--muted); font-size: 14px; }
   .code strong { display: block; margin-top: 4px; color: var(--text); font-size: 26px; letter-spacing: 0.12em; }
@@ -36,11 +38,13 @@
     <p>Famiam, c’est le carnet de recettes de la famille. L’invitation s’ouvre uniquement dans l’application.</p>
   </div>
   <div class="steps">
-    <div class="step"><b>1</b><span>Installe Famiam sur ton téléphone (demande l’application à la personne qui t’a invité).</span></div>
+    <div class="step"><b>1</b><span>Installe Famiam avec le bouton ci-dessous (Android).</span></div>
     <div class="step"><b>2</b><span>Touche à nouveau le lien reçu : l’invitation s’ouvre dans l’app.</span></div>
   </div>
   <div class="note" id="absent" hidden>Famiam n’est pas encore installée sur ce téléphone. Installe-la, puis touche à nouveau le lien.</div>
   <a class="button" id="open" href="#" hidden>Ouvrir dans Famiam</a>
+  <a class="button secondary" href="https://github.com/famiam-app/famiam-app.github.io/releases/latest/download/Famiam.apk">Installer Famiam (Android)</a>
+  <p class="hint">Si le téléphone affiche un avertissement : « Plus de détails » puis « Installer quand même ».</p>
   <div class="code" id="code" hidden>Ou, dans l’app : « J’ai un code »<strong id="code-value"></strong></div>
 </main>
 <script>
