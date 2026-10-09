@@ -60,7 +60,7 @@
       // Ouvre l'app si elle est installée ; sinon revient ici avec un message.
       var fallback = location.origin + location.pathname + '?code=' + code + '&absent=1';
       var open = document.getElementById('open');
-      open.href = 'intent://rejoindre?code=' + code + '#Intent;scheme=recettes;S.browser_fallback_url=' + encodeURIComponent(fallback) + ';end';
+      open.href = 'intent://rejoindre?code=' + code + '#Intent;scheme=recettes;package=com.famille.recettes;S.browser_fallback_url=' + encodeURIComponent(fallback) + ';end';
       open.hidden = false;
     }
   } else {

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Famiam · Confidentialité</title>
+<link rel="icon" href="../icon.png">
+<style>
+  :root { --bg: #FBF7F2; --card: #FFFFFF; --text: #2B2420; --muted: #6E625A; --border: #EDE4DA; --primary: #B4472F; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.55; }
+  main { max-width: 680px; margin: 0 auto; padding: 28px 16px 48px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+  .brand img { width: 36px; height: 36px; border-radius: 10px; }
+  h1 { font-size: 28px; margin: 20px 0 4px; }
+  h2 { font-size: 19px; margin: 28px 0 8px; }
+  p, li { color: var(--text); font-size: 16px; }
+  .muted { color: var(--muted); font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-top: 1px solid var(--border); }
+  th { background: #F3E9DF; border-top: 0; }
+  a { color: var(--primary); }
+  @media (max-width: 520px) { table, tbody, tr, th, td { display: block; } thead { display: none; } td { border-top: 0; padding: 4px 12px; } tr { border-top: 1px solid var(--border); padding: 8px 0; } td:first-child { font-weight: 700; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><img src="../icon.png" alt="">Famiam</div>
+  <h1>Confidentialité</h1>
+  <p class="muted">Dernière mise à jour : 9 octobre 2026</p>
+
+  <p>Famiam est un carnet de recettes partagé entre proches, créé à titre personnel et sans publicité. Cette page explique quelles données l’application garde, pourquoi, et comment les effacer.</p>
+
+  <h2>Ce que Famiam enregistre</h2>
+  <table>
+    <thead><tr><th>Donnée</th><th>Pourquoi</th><th>Qui la voit</th></tr></thead>
+    <tbody>
+      <tr><td>Adresse e-mail et mot de passe (chiffré)</td><td>Se connecter</td><td>Personne d’autre</td></tr>
+      <tr><td>Prénom et photo de profil</td><td>Savoir qui a ajouté quoi</td><td>Les membres de tes familles, et leurs abonnés si la famille est visible dans « Découvrir »</td></tr>
+      <tr><td>Recettes, photos de recettes, commentaires et photos de plats</td><td>Le carnet de recettes</td><td>Idem</td></tr>
+      <tr><td>Liste de courses</td><td>Préparer les courses</td><td>Toi seul</td></tr>
+      <tr><td>Identifiant de notification du téléphone</td><td>Prévenir des nouvelles recettes (si tu l’autorises)</td><td>Personne d’autre</td></tr>
+    </tbody>
+  </table>
+  <p>Famiam ne collecte ni localisation, ni contacts, ni statistiques d’usage, et n’affiche aucune publicité.</p>
+
+  <h2>Familles visibles dans « Découvrir »</h2>
+  <p>Une famille peut être visible dans l’onglet « Découvrir » : toute personne ayant l’app peut alors s’y abonner et lire ses recettes, les prénoms et les photos de ses membres. Le propriétaire de la famille peut la cacher à tout moment (onglet Famille › Réglages).</p>
+
+  <h2>Services utilisés</h2>
+  <ul>
+    <li><strong>Supabase</strong> (serveurs à Paris) : stockage des comptes, des recettes et des photos.</li>
+    <li><strong>Google Gemini</strong> : quand tu photographies une recette, la photo est envoyée à Gemini pour en lire le texte. Avec l’offre gratuite utilisée par Famiam, <strong>Google peut se servir de ces photos pour améliorer ses produits</strong>. Évite d’y faire figurer des informations personnelles.</li>
+    <li><strong>Firebase Cloud Messaging</strong> (Google) et <strong>Expo</strong> : envoi des notifications.</li>
+    <li><strong>Expo</strong> : mises à jour de l’application.</li>
+    <li><strong>GitHub</strong> : une sauvegarde de la base est faite chaque semaine dans un dépôt privé, pour pouvoir tout restaurer en cas de panne.</li>
+  </ul>
+
+  <h2>Durée de conservation</h2>
+  <p>Tes données sont gardées tant que ton compte existe. Quand tu supprimes ton compte, elles sont effacées immédiatement du service ; elles peuvent rester quelque temps dans les sauvegardes avant d’en disparaître.</p>
+
+  <h2>Supprimer ton compte</h2>
+  <p>Dans l’app : onglet <strong>Moi</strong> › <strong>Supprimer mon compte</strong>. Ton prénom, ta photo, tes commentaires, ta liste de courses et ton compte sont effacés. Les recettes que tu as ajoutées restent dans tes familles, sans ton nom.</p>
+  <p>Pour quitter seulement une famille : onglet <strong>Famille</strong> › <strong>Quitter la famille</strong>.</p>
+
+  <h2>Tes droits</h2>
+  <p>Tu peux demander à consulter, corriger ou effacer tes données, en écrivant à l’adresse ci-dessous. Tu peux aussi saisir la CNIL (<a href="https://www.cnil.fr">cnil.fr</a>).</p>
+
+  <h2>Contact</h2>
+  <p><a href="mailto:andrew.zicler@gmail.com">andrew.zicler@gmail.com</a></p>
+</main>
+</body>
+</html>

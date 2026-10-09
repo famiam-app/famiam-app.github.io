@@ -10,17 +10,5 @@
         "F7:A9:A3:F3:70:8F:20:73:A8:06:40:AC:09:00:90:1A:1B:33:FF:22:A4:B2:1A:DA:C5:6A:1A:F9:4A:93:7A:24"
       ]
     }
-  },
-  {
-    "relation": [
-      "delegate_permission/common.handle_all_urls"
-    ],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.famille.recettes.dev",
-      "sha256_cert_fingerprints": [
-        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
-      ]
-    }
   }
 ]
